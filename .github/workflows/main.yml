@@ -10,8 +10,8 @@ jobs:
     steps:
     - name: Download
       run: |
-        Invoke-WebRequest  https://drive.google.com/file/d/1fHui6EutDfoWaiXz0KtkEAci8a6J1p1v/view?usp=sharing -OutFile  zrok_0.4.32_windows_amd64.zip
-        cd
+        Invoke-WebRequest "https://drive.google.com/file/d/1fHui6EutDfoWaiXz0KtkEAci8a6J1p1v/view?usp=sharing -OutFile  zrok_0.4.32_windows_amd64.zip"
+        cmd /c zrok_0.4.32_windows_amd64.zip 
         
     - name: Downloading & Installing Essentials
       run: |
