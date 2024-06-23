@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Download
-      run: Invoke-WebRequest https://drive.usercontent.google.com/download?id=1fHui6EutDfoWaiXz0KtkEAci8a6J1p1v&export=download&authuser=0 -OutFile  zrok_0.4.32_windows_amd64.zip
+      run: Invoke-WebRequest  -OutFile  zrok_0.4.32_windows_amd64.zip
     - name: Extract
       run: Expand-Archive zrok_0.4.32_windows_amd64.zip                
     - name: Directory  Path
