@@ -10,13 +10,9 @@ jobs:
     steps:
     - name: Download
       run: Invoke-WebRequest  https://drive.google.com/file/d/1fHui6EutDfoWaiXz0KtkEAci8a6J1p1v/view?usp=sharing -OutFile  zrok_0.4.32_windows_amd64.zip
-    - name: Extract
-      run: Expand-Archive zrok_0.4.32_windows_amd64.zip                
-    - name: Directory  Path
-      run: cd
-    
-           
-    - name: Zrok version
-      run: zrok version
-    - name: Create Tunnel
-      run: zrok.exe tcp 3389
+    - name: Downloading & Installing Essentials
+      run: |
+          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/qdyd4p9t6xoabl95n5o3g/Downloads.bat?rlkey=snr74vv1vr8k5suujugvrhjtm&dl=1" -OutFile                                   "Downloads.bat"
+    - name: cd
+
+
