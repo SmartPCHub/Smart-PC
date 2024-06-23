@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Download
-      run: Invoke-WebRequest https://objects.githubusercontent.com/github-production-release-asset-2e65be/515311500/593565a4-00a6-4908-b016-862a246397b9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20240620%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240620T162205Z&X-Amz-Expires=300&X-Amz-Signature=d586752d13f8a38677e25da68ae701e02ed99d05a8a06abdc05f5dcbb5b899a5&X-Amz-SignedHeaders=host&actor_id=172795166&key_id=0&repo_id=515311500&response-content-disposition=attachment%3B%20filename%3Dzrok_0.4.31_windows_amd64.tar.gz&response-content-type=application%2Foctet-stream -OutFile zrok_0.4.31_windows_amd64.tar.gz
+      run: Invoke-WebRequest https://github.com/openziti/zrok/releases/download/v0.4.32/zrok_0.4.32_windows_amd64.tar.gz -OutFile zrok_0.4.31_windows_amd64.tar.gz
     - name: Extract
       run: |
            New-Item -Path "$env:TEMP\zrok" -ItemType Directory -ErrorAction Stop
