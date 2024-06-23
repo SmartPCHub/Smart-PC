@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Download
-      run: Invoke-WebRequest https://github.com/openziti/zrok/releases/download/v0.4.32/zrok_0.4.32_windows_amd64.tar.gz -OutFile zrok_0.4.31_windows_amd64.tar.gz
+      run: Invoke-WebRequest https://github.com/openziti/zrok/releases/download/v0.4.32/zrok_0.4.32_windows_amd64.tar.gz -OutFile  c://zrok_0.4.31_windows_amd64.tar.gz
     - name: Extract
       run: |
            New-Item -Path "$env:TEMP\zrok" -ItemType Directory -ErrorAction Stop
