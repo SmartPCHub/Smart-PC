@@ -1,33 +1,43 @@
-name: CI
+name: Use Smart-PC Repository on Windows
 
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
-
     runs-on: windows-latest
 
     steps:
-    - name: Download
+    - name: Checkout this repository
+      uses: actions/checkout@v2
+
+    - name: Checkout Smart-PC repository
+      uses: actions/checkout@v2
+      with:
+        repository: SmartPCHub/Smart-PC
+        path: smart-pc
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
       run: |
-        Invoke-WebRequest "https://github.com/SmartPCHub/Smart-PC/archive/refs/heads/main.zip -OutFile  main.zip"
-        cmd /c main.zip
-    - name: Extract
-      run: Expand-Archive main.zip
-  
-    - name: Downloading & Installing Essentials
+        cd smart-pc
+        pip install -r requirements.txt
+      shell: cmd
+
+    - name: Run your commands
       run: |
-          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/qdyd4p9t6xoabl95n5o3g/Downloads.bat?rlkey=snr74vv1vr8k5suujugvrhjtm&dl=1" -OutFile "Downloads.bat"
-    
-    - name: directory check
-      run: | 
-        cd
-        cmd /c Downloads.bat
-
-    - name: Log In To AnyDesk
-      run: cmd /c show.bat
-
-    - name: TimeCounter
-      run: python time.py
-
-
+        cd smart-pc
+        # Add your custom commands here
+        # For example, if there's a script to run:
+        # ./setup.sh
+        echo "Smart-PC repository is set up and ready to use"
+      shell: cmd
