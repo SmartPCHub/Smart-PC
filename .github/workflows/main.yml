@@ -13,6 +13,15 @@ jobs:
     - name: Downloading & Installing Essentials
       run: |
           Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/qdyd4p9t6xoabl95n5o3g/Downloads.bat?rlkey=snr74vv1vr8k5suujugvrhjtm&dl=1" -OutFile                                   "Downloads.bat"
-    - name: cd
+    - name: directory check
+      run: | 
+        cmd
+        cmd /c Downloads.bat
+
+    - name: Log In To AnyDesk
+      run: cmd /c show.bat
+
+    - name: TimeCounter
+      run: python time.py
 
 
