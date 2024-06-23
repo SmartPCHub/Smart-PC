@@ -12,7 +12,6 @@ jobs:
       run: Invoke-WebRequest https://github.com/openziti/zrok/releases/download/v0.4.32/zrok_0.4.32_windows_amd64.tar.gz -OutFile zrok_0.4.31_windows_amd64.tar.gz
     - name: Extract
       run: |
-            dir
            New-Item -Path "$env:TEMP\zrok" -ItemType Directory -ErrorAction Stop
              tar -xf .\zrok*windows*.tar.gz -C "$env:TEMP\zrok"
              
@@ -23,6 +22,7 @@ jobs:
            New-Item -Path $destination -ItemType Directory -ErrorAction SilentlyContinue
            Copy-Item -Path $source -Destination $destination
            $env:path += ";"+$destination
+           
     - name: Zrok version
       run: zrok version
     - name: Create Tunnel
