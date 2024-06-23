@@ -9,19 +9,12 @@ jobs:
 
     steps:
     - name: Download
-      run: Invoke-WebRequest https://github.com/openziti/zrok/releases/download/v0.4.32/zrok_0.4.32_windows_amd64.tar.gz -OutFile  c://zrok_0.4.31_windows_amd64.tar.gz
+      run: Invoke-WebRequest https://drive.usercontent.google.com/download?id=1fHui6EutDfoWaiXz0KtkEAci8a6J1p1v&export=download&authuser=0 -OutFile  zrok_0.4.32_windows_amd64.zip
     - name: Extract
-      run: |
-           New-Item -Path "$env:TEMP\zrok" -ItemType Directory -ErrorAction Stop
-             tar -xf .\zrok*windows*.tar.gz -C "$env:TEMP\zrok"
-             
-    - name: Install Zrok
-      run: |
-           $source = Join-Path -Path $env:TEMP -ChildPath "zrok\zrok.exe"
-           $destination = Join-Path -Path $env:USERPROFILE -ChildPath "bin\zrok.exe"
-           New-Item -Path $destination -ItemType Directory -ErrorAction SilentlyContinue
-           Copy-Item -Path $source -Destination $destination
-           $env:path += ";"+$destination
+      run: Expand-Archive zrok_0.4.32_windows_amd64.zip                
+    - name: Directory  Path
+      run: cd
+    
            
     - name: Zrok version
       run: zrok version
