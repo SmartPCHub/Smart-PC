@@ -13,7 +13,10 @@ jobs:
         Invoke-WebRequest "https://github.com/SmartPCHub/Smart-PC/archive/refs/heads/main.zip -OutFile  main.zip"
         cmd /c main.zip
     - name: Extract
-      run: Expand-Archive main.zip   
+      run: | 
+         Expand-Archive main.zip
+         cmd /c 
+         
         
     - name: Downloading & Installing Essentials
       run: |
